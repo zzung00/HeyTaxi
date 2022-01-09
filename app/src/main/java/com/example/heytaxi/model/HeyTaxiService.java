@@ -1,8 +1,11 @@
 package com.example.heytaxi.model;
 
+import com.example.heytaxi.dto.VerifyDTO;
+
 import java.time.LocalDateTime;
 
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 
@@ -11,8 +14,8 @@ public interface HeyTaxiService {
     Call<LocalDateTime> serverConnect();
 
     @POST("/verify/request")
-    Call<String> verifyReq();
+    Call<VerifyDTO.Response> verifyReq(@Body VerifyDTO.Request request);
 
     @GET("/verify")
-    Call<String> verify();
+    Call<VerifyDTO.Response> verify(@Body VerifyDTO.Request request);
 }
