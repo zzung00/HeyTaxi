@@ -1,4 +1,4 @@
-package com.example.heytaxi.model.adapter;
+package com.example.heytaxi.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
