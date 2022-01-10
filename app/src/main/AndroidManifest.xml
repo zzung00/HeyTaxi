@@ -12,6 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HeyTaxi"
         android:usesCleartextTraffic="true">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCcuwKVtRMyUhtPA_ykiP3u1XkRoz1dpUQ" />
+
         <activity android:name=".view.VerifiedActivity"></activity>
         <activity android:name=".view.VerifyActivity" />
         <activity android:name=".view.SplashActivity">
