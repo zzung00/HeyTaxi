@@ -1,8 +1,10 @@
-package com.example.heytaxi;
+package com.example.heytaxi.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.heytaxi.R;
 
 public class MainActivity extends AppCompatActivity {
 

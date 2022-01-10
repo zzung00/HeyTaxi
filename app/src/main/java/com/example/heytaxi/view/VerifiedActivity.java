@@ -10,22 +10,22 @@ import android.widget.EditText;
 
 import com.example.heytaxi.R;
 
-public class VerifyActivity extends AppCompatActivity {
-    private EditText phoneNum;
-    private Button btnVerifyReq;
+public class VerifiedActivity extends AppCompatActivity {
+    private EditText verifyNum;
+    private Button btnVerified;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_verify);
+        setContentView(R.layout.activity_verified);
 
-        phoneNum = (EditText) findViewById(R.id.editPhoneNum);
-        btnVerifyReq = (Button) findViewById(R.id.btnVerifyReq);
+        verifyNum = (EditText) findViewById(R.id.editVerifyNum);
+        btnVerified = (Button) findViewById(R.id.btnVerified);
 
-        btnVerifyReq.setOnClickListener(new View.OnClickListener() {
+        btnVerified.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), VerifiedActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
                 finish();
             }

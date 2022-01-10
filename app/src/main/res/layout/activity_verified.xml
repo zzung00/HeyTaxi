@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.VerifyActivity">
+    tools:context=".view.VerifiedActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/jalnan"
         android:gravity="center"
-        android:text="전화번호를 입력해주세요"
+        android:text="인증번호를 입력해주세요"
         android:textColor="@color/green"
         android:textSize="25dp"
         android:textStyle="bold"
@@ -42,13 +42,13 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:hint="전화번호">
+            android:hint="인증번호">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editPhoneNum"
+                android:id="@+id/editVerifyNum"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="phone"
+                android:inputType="number"
                 android:maxLength="13" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -58,8 +58,8 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/green"
-        android:text="인증요청"
-        android:id="@+id/btnVerifyReq"
+        android:text="인증확인"
+        android:id="@+id/btnVerified"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
