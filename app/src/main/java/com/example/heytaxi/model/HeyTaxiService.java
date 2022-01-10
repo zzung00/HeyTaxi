@@ -13,9 +13,9 @@ public interface HeyTaxiService {
     @GET("/")
     Call<LocalDateTime> serverConnect();
 
-    @POST("/verify/request")
+    @POST("/api/verify/request")
     Call<VerifyDTO.Response> verifyReq(@Body VerifyDTO.Request request);
 
-    @GET("/verify")
+    @GET("/api/verify")
     Call<VerifyDTO.Response> verify(@Body VerifyDTO.Request request);
 }
