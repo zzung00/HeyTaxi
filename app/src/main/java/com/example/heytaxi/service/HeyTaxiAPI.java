@@ -1,4 +1,4 @@
-package com.example.heytaxi.model;
+package com.example.heytaxi.service;
 
 import android.os.Build;
 

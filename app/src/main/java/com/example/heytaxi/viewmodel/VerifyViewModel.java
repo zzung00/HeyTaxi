@@ -1,6 +1,5 @@
 package com.example.heytaxi.viewmodel;
 
-import android.content.Intent;
 import android.os.Build;
 import android.os.CountDownTimer;
 import android.widget.TextView;
@@ -10,8 +9,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.heytaxi.dto.VerifyDTO;
-import com.example.heytaxi.model.HeyTaxiAPI;
+import com.example.heytaxi.model.VerifyDTO;
+import com.example.heytaxi.service.HeyTaxiAPI;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -49,8 +48,27 @@ public class VerifyViewModel extends ViewModel {
         return result;
     }
 
-    public void verify(String phone, String code) {
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public LiveData<VerifyDTO.Response> verify(String phone, String code) {
+        VerifyDTO.Request request = new VerifyDTO.Request(phone, null, code);
+        Call<VerifyDTO.Response> call = HeyTaxiAPI.getInstance().getService().verify(request);
+        call.enqueue(new Callback<VerifyDTO.Response>() {
+            @Override
+            public void onResponse(Call<VerifyDTO.Response> call, Response<VerifyDTO.Response> response) {
+                if (response.isSuccessful()) {
+                    VerifyDTO.Response res = response.body();
+                    result.setValue(res);
+                }
+            }
 
+            @Override
+            public void onFailure(Call<VerifyDTO.Response> call, Throwable t) {
+                VerifyDTO.Response res = new VerifyDTO.Response();
+                res.setSuccess(false);
+                result.setValue(res);
+            }
+        });
+        return result;
     }
 
     public void confirm() {

@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -39,6 +40,7 @@ public class VerifyActivity extends AppCompatActivity {
         viewModel.request(phoneNum.getText().toString()).observe(this, response -> {
             if (response.isSuccess() == true) {
                 Intent intent = new Intent(getApplicationContext(), VerifiedActivity.class);
+                intent.putExtra("phone", phoneNum.getText().toString());
                 startActivity(intent);
                 finish();
             }else {

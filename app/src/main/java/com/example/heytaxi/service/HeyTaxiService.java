@@ -1,6 +1,6 @@
-package com.example.heytaxi.model;
+package com.example.heytaxi.service;
 
-import com.example.heytaxi.dto.VerifyDTO;
+import com.example.heytaxi.model.VerifyDTO;
 
 import java.time.LocalDateTime;
 
@@ -16,6 +16,6 @@ public interface HeyTaxiService {
     @POST("/api/verify/request")
     Call<VerifyDTO.Response> verifyReq(@Body VerifyDTO.Request request);
 
-    @GET("/api/verify")
+    @POST("/api/verify")
     Call<VerifyDTO.Response> verify(@Body VerifyDTO.Request request);
 }

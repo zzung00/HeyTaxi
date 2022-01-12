@@ -1,17 +1,14 @@
 package com.example.heytaxi.viewmodel;
 
 import android.os.Build;
-import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.heytaxi.model.HeyTaxiAPI;
-import com.example.heytaxi.view.SplashActivity;
+import com.example.heytaxi.service.HeyTaxiAPI;
 
-import java.io.IOException;
 import java.time.LocalDateTime;
 
 import retrofit2.Call;

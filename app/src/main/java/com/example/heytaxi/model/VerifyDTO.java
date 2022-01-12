@@ -1,4 +1,4 @@
-package com.example.heytaxi.dto;
+package com.example.heytaxi.model;
 
 public class VerifyDTO {
     public static final class Request {
