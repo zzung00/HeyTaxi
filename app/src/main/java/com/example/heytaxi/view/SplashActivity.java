@@ -14,7 +14,7 @@ import com.example.heytaxi.viewmodel.SplashViewModel;
 
 
 public class SplashActivity extends AppCompatActivity {
-    private SplashViewModel model;
+    private SplashViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +22,8 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        model = new ViewModelProvider(this).get(SplashViewModel.class);
-        model.isConnected().observe(this, isConnected -> {
+        viewModel = new ViewModelProvider(this).get(SplashViewModel.class);
+        viewModel.isConnected().observe(this, isConnected -> {
             if (!isConnected) {
                 alertDialog();
             }else {

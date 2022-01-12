@@ -1,10 +1,13 @@
 package com.example.heytaxi.viewmodel;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.CountDownTimer;
 import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.heytaxi.dto.VerifyDTO;
@@ -20,31 +23,37 @@ public class VerifyViewModel extends ViewModel {
     private int exitDelay = 61;
     private CountDownTimer timer;
     private TextView txtTimer;
+    private MutableLiveData<VerifyDTO.Response> result = new MutableLiveData<>();
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void request(String phone) {
+    public LiveData<VerifyDTO.Response> request(String phone) {
         VerifyDTO.Request request = new VerifyDTO.Request(phone, null, null);
         Call<VerifyDTO.Response> call = HeyTaxiAPI.getInstance().getService().verifyReq(request);
         call.enqueue(new Callback<VerifyDTO.Response>() {
             @Override
             public void onResponse(Call<VerifyDTO.Response> call, Response<VerifyDTO.Response> response) {
                 if (response.isSuccessful()) {
-                    countDown();
+                    VerifyDTO.Response res = response.body();
+                    result.setValue(res);
                 }
             }
 
             @Override
             public void onFailure(Call<VerifyDTO.Response> call, Throwable t) {
-
+                VerifyDTO.Response res = new VerifyDTO.Response();
+                res.setSuccess(false);
+                res.setMessage("오류가 발생했습니다! 다시 시도해주세요.");
+                result.setValue(res);
             }
         });
+        return result;
     }
 
     public void verify(String phone, String code) {
 
     }
 
-    public void countDown() {
+    public void confirm() {
         int delay;
         value = 61;
         delay = exitDelay * ms;
