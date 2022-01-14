@@ -16,6 +16,6 @@ public interface HeyTaxiService {
     @POST("/api/verify/request")
     Call<VerifyDTO.Response> verifyReq(@Body VerifyDTO.Request request);
 
-    @POST("/api/verify")
+    @POST("/api/verify/verify")
     Call<VerifyDTO.Response> verify(@Body VerifyDTO.Request request);
 }
