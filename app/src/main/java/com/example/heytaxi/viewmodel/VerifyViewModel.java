@@ -50,13 +50,14 @@ public class VerifyViewModel extends ViewModel {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public LiveData<VerifyDTO.Response> verify(String phone, String code) {
-        VerifyDTO.Request request = new VerifyDTO.Request(phone, null, code);
+        VerifyDTO.Request request = new VerifyDTO.Request(phone, "", code);
         Call<VerifyDTO.Response> call = HeyTaxiAPI.getInstance().getService().verify(request);
         call.enqueue(new Callback<VerifyDTO.Response>() {
             @Override
             public void onResponse(Call<VerifyDTO.Response> call, Response<VerifyDTO.Response> response) {
                 if (response.isSuccessful()) {
                     VerifyDTO.Response res = response.body();
+                    res.getToken();
                     result.setValue(res);
                 }
             }

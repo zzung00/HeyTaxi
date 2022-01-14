@@ -40,14 +40,16 @@ public class VerifyDTO {
     public static final class Response {
         private boolean success;
         private String message;
+        private String token;
 
         public Response() {
-            this(false, "");
+            this(false, null, null);
         }
 
-        public Response(boolean success, String message) {
+        public Response(boolean success, String message, String token) {
             this.success = success;
             this.message = message;
+            this.token = token;
         }
 
         public boolean isSuccess() {
@@ -64,6 +66,14 @@ public class VerifyDTO {
 
         public void setMessage(String message) {
             this.message = message;
+        }
+
+        public String getToken() {
+            return token;
+        }
+
+        public void setToken(String token) {
+            this.token = token;
         }
     }
 }

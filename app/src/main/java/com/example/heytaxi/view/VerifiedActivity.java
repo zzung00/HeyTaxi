@@ -27,7 +27,7 @@ public class VerifiedActivity extends AppCompatActivity {
 
         verifyNum = (EditText) findViewById(R.id.editVerifyNum);
         btnVerified = (Button) findViewById(R.id.btnVerified);
-        phone = getIntent().getParcelableExtra("phone");
+        phone = getIntent().getStringExtra("phone");
         viewModel = new ViewModelProvider(this).get(VerifyViewModel.class);
 
         btnVerified.setOnClickListener(new View.OnClickListener() {
