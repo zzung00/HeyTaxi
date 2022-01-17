@@ -14,26 +14,31 @@
         tools:context=".view.MapActivity" />
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <com.google.android.material.bottomappbar.BottomAppBar
-            android:id="@+id/bar"
-            android:layout_height="wrap_content"
+            android:id="@+id/bottomappbar"
             android:layout_width="match_parent"
-            android:layout_gravity="bottom"
-            app:fabAlignmentMode="center"
-            app:menu="@menu/main_bottom_menu"
-            app:backgroundTint="@color/white" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom">
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNavigationBar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="16dp"
+                android:background="@android:color/transparent"
+                app:menu="@menu/main_bottom_menu" />
+        </com.google.android.material.bottomappbar.BottomAppBar>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_baseline_directions_car_24"
-            android:backgroundTint="@color/green"
-            app:layout_anchor="@id/bar" />
-
+            app:layout_anchor="@id/bottomappbar" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

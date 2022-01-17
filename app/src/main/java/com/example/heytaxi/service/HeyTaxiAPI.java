@@ -21,7 +21,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class HeyTaxiAPI {
     private static HeyTaxiAPI instance = null;
     private static HeyTaxiService service;
-    private static final String baseUrl = "http://172.30.1.30/";
+    private static final String baseUrl = "http://220.87.153.233/";
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private HeyTaxiAPI() {
